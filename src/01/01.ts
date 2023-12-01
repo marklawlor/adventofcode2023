@@ -1,7 +1,7 @@
 export const exampleMode = false;
 
 export function parse(input: string) {
-  return input;
+  return input.split("\n");
 }
 
 const mapping: Record<string, string> = {
@@ -18,7 +18,7 @@ const mapping: Record<string, string> = {
 
 export const partOneExampleSolution = 142;
 export function partOne(input: ReturnType<typeof parse>) {
-  return input.split("\n").reduce((acc, line) => {
+  return input.reduce((acc, line) => {
     const match = [...line.matchAll(/\d/g)].map((m) => m[0]);
     return acc + parseInt(`${match.at(0)}${match.at(-1)}`);
   }, 0);
@@ -26,7 +26,7 @@ export function partOne(input: ReturnType<typeof parse>) {
 
 export const partTwoExampleSolution = 281;
 export function partTwo(input: ReturnType<typeof parse>) {
-  return input.split("\n").reduce((acc, line) => {
+  return input.reduce((acc, line) => {
     const re =
       /1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine/g;
     let match;
@@ -34,7 +34,7 @@ export function partTwo(input: ReturnType<typeof parse>) {
     while ((match = re.exec(line))) {
       match = match[0];
       re.lastIndex -= match.length - 1;
-      matches.push(parseInt(mapping[match] ?? match));
+      matches.push(mapping[match] ?? match);
     }
     return acc + parseInt(`${matches.at(0)}${matches.at(-1)}`);
   }, 0);
