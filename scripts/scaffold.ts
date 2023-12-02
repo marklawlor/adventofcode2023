@@ -32,7 +32,6 @@ export async function scaffold(day: number, year: number) {
     }
 
     return sum
-
   }
 
   export const partTwoExampleSolution = false;
