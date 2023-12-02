@@ -1,5 +1,12 @@
 export const exampleMode = false;
 
+/**
+ * This was my original solution, but if I would redo again, it would be with two regex
+ *
+ * const first = /.*?([1-9]|one|two|three|four|five|six|seven|eight|nine)/;
+ * const last = /.*([1-9]|one|two|three|four|five|six|seven|eight|nine).*$/;
+ */
+
 export function parse(input: string) {
   return input.split("\n");
 }
@@ -26,15 +33,17 @@ export function partOne(input: ReturnType<typeof parse>) {
 
 export const partTwoExampleSolution = 281;
 export function partTwo(input: ReturnType<typeof parse>) {
-  return input.reduce((acc, line) => {
-    const re = /{1-9}|one|two|three|four|five|six|seven|eight|nine/g;
+  let sum = 0;
+  for (const line of input) {
     let match;
     const matches = [];
+    const re = /[1-9]|one|two|three|four|five|six|seven|eight|nine/g;
     while ((match = re.exec(line))) {
       match = match[0];
       re.lastIndex -= match.length - 1;
       matches.push(mapping[match] ?? match);
     }
-    return acc + parseInt(`${matches.at(0)}${matches.at(-1)}`);
-  }, 0);
+    sum += parseInt(`${matches.at(0)}${matches.at(-1)}`);
+  }
+  return sum;
 }
