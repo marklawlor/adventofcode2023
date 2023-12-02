@@ -1,6 +1,5 @@
 {
   "name": "advent-of-code-bun",
-  "module": "scripts/main.ts",
   "type": "module",
   "scripts": {
     "solve": "bun --watch ./scripts/solve.ts"
