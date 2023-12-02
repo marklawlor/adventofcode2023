@@ -27,8 +27,7 @@ export function partOne(input: ReturnType<typeof parse>) {
 export const partTwoExampleSolution = 281;
 export function partTwo(input: ReturnType<typeof parse>) {
   return input.reduce((acc, line) => {
-    const re =
-      /1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine/g;
+    const re = /{1-9}|one|two|three|four|five|six|seven|eight|nine/g;
     let match;
     const matches = [];
     while ((match = re.exec(line))) {

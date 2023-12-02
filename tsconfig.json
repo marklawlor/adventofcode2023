@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
@@ -9,7 +11,6 @@
     "noEmit": true,
     "composite": true,
     "strict": true,
-    "noUncheckedIndexedAccess": true,
     "downlevelIteration": true,
     "skipLibCheck": true,
     "jsx": "preserve",
@@ -22,7 +23,9 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   }
 }

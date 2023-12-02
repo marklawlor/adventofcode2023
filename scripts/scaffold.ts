@@ -16,27 +16,26 @@ export async function scaffold(day: number, year: number) {
 
   await mkdir(directory);
 
-  const test = dedent`
-  import { describe } from 'bun:test'
-
-  describe(${`'Day ${day}'`}, () => {
-    describe('Part One', () => {})
-    
-    describe('Part Two', () => {})
-  })
-  `;
-
   const solution = dedent`
   export const exampleMode = true;
 
   export function parse(input: string) {
-    return input
+    return input.trim().split("/n");
   }
 
   export const partOneExampleSolution = 0
-  export function partOne(input: ReturnType<typeof parse>) {}
+  export function partOne(input: ReturnType<typeof parse>) {
+    const sum = 0;
+    
+    for (const line of input) {
+      // Do something
+    }
 
-  export const startPartTwo = false;
+    return sum
+
+  }
+
+  export const partTwoExampleSolution = false;
   export function partTwo(input: ReturnType<typeof parse>) {}
   `;
 
@@ -50,7 +49,6 @@ export async function scaffold(day: number, year: number) {
     );
   });
 
-  await Bun.write(new URL(`${name}.test.ts`, directory.href), test);
   await Bun.write(new URL(`${name}.ts`, directory.href), solution);
   await Bun.write(new URL(`input.txt`, directory.href), input ?? "");
   await Bun.write(new URL(`example.txt`, directory.href), "");
