@@ -25,7 +25,7 @@ export async function scaffold(day: number, year: number) {
 
   export const partOneExampleSolution = 0
   export function partOne(input: ReturnType<typeof parse>) {
-    const sum = 0;
+    let sum = 0;
     
     for (const line of input) {
       // Do something
