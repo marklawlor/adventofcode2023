@@ -20,7 +20,7 @@ export async function scaffold(day: number, year: number) {
   export const exampleMode = true;
 
   export function parse(input: string) {
-    return input.trim().split("\\n");
+    return input.trim().split("\\\n");
   }
 
   export const partOneExampleSolution = 0
