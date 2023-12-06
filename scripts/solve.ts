@@ -35,12 +35,12 @@ const [two, twoPerformance] = withPerformance(
   () => partTwo?.(trimAndParse(exampleMode ? partTwoExample || example : input))
 );
 
-// console.log(
-//   "🌲",
-//   "Part One:",
-//   chalk.green(one ?? "—"),
-//   one ? `(${formatPerformance(onePerformance)})` : ""
-// );
+console.log(
+  "🌲",
+  "Part One:",
+  chalk.green(one ?? "—"),
+  one ? `(${formatPerformance(onePerformance)})` : ""
+);
 console.log(
   "🎄",
   "Part Two:",
